@@ -19,6 +19,6 @@ class NLPServices:
         doc: Doc = self.analyze_text(text)
         cleaned_text = ""
         for token in doc:
-            if not token.is_stop and token.pos_ not in ["PUNCT", "CCONJ"]:
+            if not token.is_stop and token.pos_ not in ["PUNCT", "CCONJ"] and token.lemma_ not in ["faire", "être", "avoir", "voir", "aller", "venir"]:
                 cleaned_text += token.lemma_ + " "
         return cleaned_text.strip()
